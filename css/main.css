@@ -1,0 +1,458 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+/* MAIN */
+body {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #2C3E50;
+}
+
+.container {
+  background-color: #25262C;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 10px 18px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 10px 18px rgba(0, 0, 0, 0.3);
+  padding: 1.3rem;
+}
+
+@media screen and (max-width: 770px) {
+  .container {
+    width: 100%;
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    border-radius: 0;
+  }
+}
+
+.container .header {
+  color: #fff;
+  position: relative;
+  border-bottom: 1px solid #515155;
+}
+
+.container .header .movie {
+  font-size: 1.85rem;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: .7rem;
+}
+
+@media screen and (max-width: 770px) {
+  .container .header .movie {
+    display: block;
+    margin-bottom: .5rem;
+  }
+}
+
+.container .header .tag {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 .16rem;
+  background-color: #515155;
+  text-transform: uppercase;
+  font-size: .75rem;
+  font-weight: 500;
+  padding: .25rem .35rem;
+  border-radius: 2px;
+  -webkit-transition: background-color .1s;
+  transition: background-color .1s;
+}
+
+.container .header .tag:hover {
+  background-color: #6a6a6d;
+}
+
+.container .header .tag:nth-child(2) {
+  margin-left: 0;
+}
+
+.container .header .cinema {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: block;
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: #bbb;
+  margin: .35rem 0 1.2rem 0;
+}
+
+.container .header .cinema:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 770px) {
+  .container .header .cinema {
+    margin-top: .7rem;
+  }
+}
+
+.container .header .date {
+  font-size: 1.25rem;
+  margin-bottom: 1.1rem;
+}
+
+.container .header .close-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #515155;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transition: border-color .1s;
+  transition: border-color .1s;
+}
+
+.container .header .close-btn:hover {
+  border-color: #fff;
+}
+
+.container .header .close-btn::before, .container .header .close-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 55%;
+  height: 2px;
+  background-color: #515155;
+  -webkit-transition: background-color .1s;
+  transition: background-color .1s;
+}
+
+.container .header .close-btn::before {
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.container .header .close-btn::after {
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+          transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.container .header .close-btn:hover::before, .container .header .close-btn:hover::after {
+  background-color: #fff;
+}
+
+@media screen and (max-width: 770px) {
+  .container .header .close-btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.container .movie-theater {
+  padding: 2.9rem 0;
+  -webkit-perspective: 900px;
+          perspective: 900px;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+
+@media screen and (max-width: 770px) {
+  .container .movie-theater {
+    width: 100%;
+  }
+}
+
+.container .movie-theater .screen {
+  width: 100%;
+  height: 105px;
+  -webkit-transform: rotateX(-35deg) scale(0.8);
+          transform: rotateX(-35deg) scale(0.8);
+  margin-bottom: -.5rem;
+  position: relative;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -ms-interpolation-mode: nearest-neighbor;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: -o-pixelated;
+      image-rendering: pixelated;
+  -webkit-box-shadow: 0 50px 32px -30px rgba(255, 255, 255, 0.2);
+          box-shadow: 0 50px 32px -30px rgba(255, 255, 255, 0.2);
+}
+
+@media screen and (max-width: 770px) {
+  .container .movie-theater .screen {
+    height: 90px;
+  }
+}
+
+.container .movie-theater .seats {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  -ms-grid-rows: (1fr)[4];
+  -ms-grid-columns: (1fr)[12];
+      grid-template: repeat(4, 1fr)/repeat(12, 1fr);
+  gap: 2.1rem 2.6rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-transform: rotateX(35deg) scale(0.87);
+          transform: rotateX(35deg) scale(0.87);
+}
+
+@media screen and (max-width: 770px) {
+  .container .movie-theater .seats {
+    gap: .8rem;
+    width: 100%;
+    -webkit-transform: rotateX(35deg) scale(1);
+            transform: rotateX(35deg) scale(1);
+  }
+}
+
+.container .movie-theater .seats div {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.container .movie-theater .seats .row-index {
+  font-size: .95rem;
+  color: #bbb;
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 770px) {
+  .container .movie-theater .seats .row-index {
+    font-size: .5rem;
+  }
+}
+
+.container .movie-theater .seats .row-index:nth-child(1) {
+  -ms-grid-row: 1;
+  grid-row: 1;
+}
+
+.container .movie-theater .seats .row-index:nth-child(2) {
+  -ms-grid-row: 2;
+  grid-row: 2;
+}
+
+.container .movie-theater .seats .row-index:nth-child(3) {
+  -ms-grid-row: 3;
+  grid-row: 3;
+}
+
+.container .movie-theater .seats .row-index:nth-child(4) {
+  -ms-grid-row: 4;
+  grid-row: 4;
+}
+
+.container .movie-theater .seats .row-index:nth-child(5) {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 12;
+  grid-column: 12;
+}
+
+.container .movie-theater .seats .row-index:nth-child(6) {
+  -ms-grid-row: 2;
+  grid-row: 2;
+  -ms-grid-column: 12;
+  grid-column: 12;
+}
+
+.container .movie-theater .seats .row-index:nth-child(7) {
+  -ms-grid-row: 3;
+  grid-row: 3;
+  -ms-grid-column: 12;
+  grid-column: 12;
+}
+
+.container .movie-theater .seats .row-index:nth-child(8) {
+  -ms-grid-row: 4;
+  grid-row: 4;
+  -ms-grid-column: 12;
+  grid-column: 12;
+}
+
+.container .movie-theater .seats .seat {
+  cursor: pointer;
+  display: block;
+  color: transparent;
+  font-weight: 500;
+  font-size: .9rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 24px;
+  position: relative;
+  -webkit-transition: color .14s;
+  transition: color .14s;
+}
+
+@media screen and (max-width: 770px) {
+  .container .movie-theater .seats .seat {
+    font-size: .5rem;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+  }
+}
+
+.container .movie-theater .seats .seat::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #4EAAFF;
+  -webkit-transition: -webkit-transform .1s;
+  transition: -webkit-transform .1s;
+  transition: transform .1s;
+  transition: transform .1s, -webkit-transform .1s;
+}
+
+@media screen and (max-width: 770px) {
+  .container .movie-theater .seats .seat::after {
+    top: -5px;
+    left: -5px;
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.container .movie-theater .seats .seat.standard {
+  background-color: #4EAAFF;
+}
+
+.container .movie-theater .seats .seat.vip {
+  background-color: #66D258;
+}
+
+.container .movie-theater .seats .seat.vip::after {
+  border-color: #66D258;
+}
+
+.container .movie-theater .seats .seat:hover {
+  color: #fff;
+}
+
+.container .movie-theater .seats .seat:hover::after {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.container .movie-theater .seats .seat-box .input {
+  display: none;
+}
+
+.container .movie-theater .seats .seat-box .input:checked + .seat {
+  color: #fff;
+}
+
+.container .movie-theater .seats .seat-box .input:checked + .seat::after {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.container .footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 1.1rem;
+  border-top: 1px solid #515155;
+}
+
+.container .footer .legend span {
+  color: #bbb;
+  font-size: .9rem;
+  margin: 0 1.2rem;
+  position: relative;
+}
+
+.container .footer .legend span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -19px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.container .footer .legend span.standard-price::before {
+  background-color: #4EAAFF;
+}
+
+.container .footer .legend span.vip-price::before {
+  background-color: #66D258;
+}
+
+@media screen and (max-width: 770px) {
+  .container .footer .legend span {
+    display: block;
+  }
+  .container .footer .legend span:first-child {
+    margin-bottom: .2rem;
+  }
+}
+
+.container .footer .done-btn {
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: .05rem;
+  background-color: #3398DC;
+  padding: .65rem 3.4rem;
+  -webkit-transition: background-color .1s;
+  transition: background-color .1s;
+}
+
+.container .footer .done-btn:hover {
+  background-color: #277cb4;
+}
+
+@media screen and (max-width: 770px) {
+  .container .footer .done-btn {
+    padding: .65rem 3rem;
+  }
+}
+/*# sourceMappingURL=main.css.map */
